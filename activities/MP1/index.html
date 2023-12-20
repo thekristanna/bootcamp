@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                
+        <!-- remix icon -->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!-- box icons -->
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  
+        <!-- cdnjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+        <!-- css -->
+        <link rel="stylesheet" href="css/stylesheet-index.css">
+ 
+        <!-- favicon -->
+        <link rel="icon" href="img/logo-synrgy.png" type="image/x-icon">
+
+        <!-- javascript // for hamburger menu only -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              let menu = document.querySelector('#menu-icon');
+              let navbar = document.querySelector('.navbar');
+
+              menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+              };
+            });
+          </script>
+
+        <!-- title -->
+        <title>Synrgy</title>
+
+    </head>
+    <body>
+        <!-- start: header -->
+        <header>
+            <!-- header: logo -->
+            <a href="#" class="logo">
+                <!-- <img src="img/logo-synrgy.png" alt="logo"> -->
+                <span><strong>SYNRGY</strong></span></a>
+            <!-- header: navbar 1/2 -->
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Connect</a></li>
+            </ul>
+            <!-- header: navbar 2/2 -->
+            <div class="main">
+                <a href="#"><i class="ri-user-fill"></i></a>
+                <a href="#" class="user">Sign In</a>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </header>
+        <!-- end: header-->
+
+
+
+        <!-- start: footer -->
+        <!-- <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col" id="footer-synrgy">
+                        <h2>SYNRGY</h2>
+                        <p id="first-about">We seamlessly blend the excitement of exploration with the delight of forging meaningful connections. Immerse yourself in the thrill of discovery as you unveil new destinations, and engage with a diverse array of individuals. Embark on a journey with us as we collectively reshape the way you experience travel, transcending mere exploration to create lasting friendships along the way.</p>
+                        <p id="second-about">Discover new places, meet new facess.</p>
+                        <div class="social">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                          </div>
+                    </div>
+    
+                    <div class="col" id="navigate">
+                        <h3>Navigate</h3>
+                        <div class="links">
+                           <a href="#">Home</a>
+                           <a href="#">About</a>
+                           <a href="#">Explore</a>
+                           <a href="#">Connect</a>
+                        </div>
+                    </div>
+    
+                    <div class="col" id="support">
+                        <h3>Support</h3>
+                        <div class="links">
+                           <a href="#">Privacy Policy</a>
+                           <a href="#">Guidelines</a>
+                           <a href="#">Safety</a>
+                           <a href="#">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <p id="copyright"><a href="mailto:thekristanna@gmail.com">© 2023 TANNA SLAY |</a> All Rights Reserved.</p>   
+                </div>
+            </div>
+         </footer> -->
+         <!-- footer: end -->
+    </body>
+</html>

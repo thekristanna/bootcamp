@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function changeHeading() {
+      let heading_text = document.getElementById("heading_name").innerHTML;
+      if (heading_text != "Welcome!") {
+        document.getElementById("heading_name").innerHTML = "Welcome!";
+      } else {
+        document.getElementById("heading_name").innerHTML =
+          "Daiben Angelo Sanchez";
+      }
+    }
+  </script>
+  <body>
+    <h1 id="heading_name">Daiben Angelo Sanchez</h1>
+    <button onclick="changeHeading()">Change</button>
+  </body>
+</html>

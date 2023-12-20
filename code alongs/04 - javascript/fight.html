@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game</title>
+        <script>
+            let w_max_hp = 100;
+            let s_max_hp = 300;
+            let w_hp = w_max_hp;
+            let s_hp = s_max_hp;
+            let w_attack_dmg = 30;
+            let w_fireball_dmg = 40;
+
+            function warrior_attack(){
+                console.log(
+                    "You swung your sword at the Skeleton King!");
+                    s_hp -= w_attack_dmg;
+                    do_turn();
+            }
+
+            function warrior_block(){
+                console.log(
+                    "You raised your shield!")
+                do_turn();
+            }
+
+            function warrior_counter(){
+                console.log("You tried to get out of the way!")
+                do_turn();
+            }
+
+            function warrior_fireball(){
+                console.log("You casted a fireball spell on the Skeleton King!")
+                s_hp -= w_fireball_dmg;
+                do_turn();
+            }
+
+            function do_turn(){
+                if (s_hp <= 0){
+                    console.log("The Skeleton King has fallen!");
+                    console.log("********CONGRATULATIONS!********")
+                } else if (w_hp <= 0){
+                    console.log("******GAME OVER!******")
+                }
+                show_stats();
+            }
+
+            function show_stats(){
+                console.log(
+                    "Warrior's HP: " + w_hp + "/" + w_max_hp);
+                console.log(
+                    "Skeleton King's HP: " + s_hp + "/" + s_max_hp);
+                console.log(
+                    "----------------------------");
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Fight the Skeleton King!</h1>
+        <img src="../../../../../Downloads/game/skeleton.webp" style="width: 50%"/>
+        <div>
+            <img   
+                src="../../../../../Downloads/game/attack.webp" 
+                onclick="warrior_attack()"
+                style="width: 100px;"/>
+            <img 
+                src="../../../../../Downloads/game/block.webp"
+                onclick="warrior_block()"
+                style="width: 100px;"/>
+            <img 
+                src="../../../../../Downloads/game/counter.webp" 
+                onclick="warrior_counter()"
+                style="width: 100px;"/>
+            <img 
+                src="../../../../../Downloads/game/fireball.webp"
+                onclick="warrior_fireball()"
+                style="width: 100px;"/>
+        </div>
+    </body>
+</html>

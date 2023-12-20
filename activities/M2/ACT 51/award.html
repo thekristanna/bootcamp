@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#imdb").submit(function (x) {
+                let imdb_id = $("#imdb_id").val();
+                const settings = {
+                    async: true,
+                    crossDomain: true,
+                    url: "https://imdb8.p.rapidapi.com/actors/get-awards?nconst=" + imdb_id,
+                    method: "GET",
+                    headers: {
+                        "X-RapidAPI-Key": "deb1e30f12msh14e1844177b4aaap12aa60jsndb98bc7e5dae",
+                        "X-RapidAPI-Host": "imdb8.p.rapidapi.com"
+                    }
+                };
+                $("#awards_list").empty();
+                $.ajax(settings).done(function (response) {
+                    for (let i = 0; i < response.resource.awards.length; i++) {
+                        let old_awards_list = $("#awards_list").html();
+                        let awards_list =
+                            "<li>" +
+                            response.resource.awards[i].awardName + ", " +
+                            response.resource.awards[i].eventName + " (" +
+                            response.resource.awards[i].year + ")" +
+                            "</li>";
+                        $("#awards_list").html(old_awards_list + awards_list);
+                    }
+                });
+                x.preventDefault();
+            });
+        });
+    </script>
+    <title>Actor/Actress Awards</title>
+</head>
+<body>
+    <h1>Lookup Awards</h1>
+    <form id="imdb">
+        <label>Enter IMDB ID</label>
+        <input type="text" id="imdb_id" />
+        <input type="submit" />
+    </form>
+    <ul>
+        <span id="awards_list"></span>
+    </ul>
+</body>
+</html>

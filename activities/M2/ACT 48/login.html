@@ -1,0 +1,72 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Login</title>
+    <script>
+        $(document).ready(function () {
+            // to home
+            if (localStorage.getItem("username")) {
+                window.location.href = "home.html";
+            }
+
+            // login form
+            $("#login_form").submit(function (event) {
+                event.preventDefault();
+
+                // credentials
+                let username = $("#username").val();
+                let password = $("#password").val();
+                let rememberMe = $("#remember_me").prop("checked");
+
+                // credentials process
+                if (username == "user" && password == "pw123") {
+                localStorage.setItem("username", username);
+
+                // remember me process
+                if (rememberMe) {
+                    localStorage.setItem("password", password);
+                    localStorage.setItem("remember_me", "true");
+                } else {
+                    localStorage.removeItem("password");
+                    localStorage.removeItem("remember_me");
+                }
+                window.location.href = "home.html";
+                } else {
+                // incorrect credentials
+                alert("Incorrect username or password");
+                }
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form id="login_form">
+      <div class="mb-3" style="max-width: 400px;">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" required />
+      </div>
+
+      <div class="mb-3" style="max-width: 400px;">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required />
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" id="remember_me" class="form-check-input" />
+        <label class="form-check-label" for="remember_me">Remember me</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </body>
+</html>

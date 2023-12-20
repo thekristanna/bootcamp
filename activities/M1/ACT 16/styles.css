@@ -1,0 +1,87 @@
+/* styles.css */
+
+body {
+    font-family: 'Comic Sans MS';
+    margin: 0px;
+  }
+  
+  .nav-table {
+    background-color: rgb(70, 130, 180);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 50px 10px 50px;
+  }
+  
+
+  #banner {
+    display: block;
+    margin: 0 auto;
+    width: 450px;
+    margin-top: 10px;
+  }
+  
+  .ministries-title {
+    color: rgb(70, 130, 180);
+    text-align: center;
+  }
+
+  #quote{
+    text-align: center;
+  }
+  
+  .ministries-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+  .pastor-img {
+    width: 350px;
+    margin-right: 20px;
+  }
+  
+  .ministries-subtitle {
+    font-size: 200%;
+    color: rgb(70, 130, 180);
+  }
+  
+  .ministries-paragraph {
+    font-size: 130%;
+  }
+  
+  .ministries-call-to-action {
+    font-size: 200%;
+  }
+  
+  .save-huell-link {
+    color: rgb(255, 0, 216);
+  }
+  
+  .other-ministries {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .cross-img {
+    width: 120px;
+  }
+  
+  .other-ministries-content {
+    text-align: center;
+    list-style-position: inside;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 20px;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 75%;
+    color: rgb(160, 160, 160);
+  }
+  

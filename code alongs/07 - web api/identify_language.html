@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#id_actor").submit(function(x) {
+        const imdbID = $("#phrase").val();
+        fetchAwards(imdbID);
+        x.preventDefault(); // Move preventDefault to the bottom
+      });
+
+      function fetchAwards(imdbID) {
+        const settings = {
+          async: true,
+          crossDomain: true,
+          url: 'https://imdb8.p.rapidapi.com/actors/get-awards?nconst=' + imdbID,
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': 'deb1e30f12msh14e1844177b4aaap12aa60jsndb98bc7e5dae',
+            'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+          }
+        };
+
+        $.ajax(settings).done(function(response) {
+          displayAwards(response);
+        }).fail(function() {
+          $("#awards").html("Error fetching data from the IMDB API.");
+        });
+      }
+
+      function displayAwards(response) {
+        const awardsList = response.awards || [];
+        if (awardsList.length > 0) {
+          let formattedAwards = "<ul>";
+          awardsList.forEach(function(award) {
+            formattedAwards += `<li>${award.name}, ${award.event} (${award.year})</li>`;
+          });
+          formattedAwards += "</ul>";
+          $("#awards").html(formattedAwards);
+        } else {
+          $("#awards").html("No awards found for the provided IMDB ID.");
+        }
+      }
+    });
+  </script>
+  <title>Actor/Actress Awards</title>
+</head>
+<body>
+  <h1>Lookup Awards</h1>
+  <form id="id_actor">
+    <label>Enter IMDB ID</label><br />
+    <input type="text" id="phrase" />
+    <input type="submit" />
+  </form>
+  <h2>Awards List</h2>
+  <ul id="awards"></ul>
+</body>
+</html>
