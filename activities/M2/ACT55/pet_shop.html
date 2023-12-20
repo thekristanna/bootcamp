@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="pet_shop.js"></script>
+  <script>
+    async function getData(data) {
+      let my_obj = await fetch(data);
+      let my_text = await my_obj.text();
+      let pets = JSON.parse(my_text);
+
+      for (let i = 0; i < pets.length; i++) {
+        let card = `
+          <div class='col-lg-3'>
+            <div class='card card-pet'>
+              <img src='${pets[i].image}' alt='dog' />
+              <div class='card-body'>
+                <h2>${pets[i].pet_name}</h2>
+                <p><strong>Species: </strong>${pets[i].species}</p>
+                <p><strong>Eating habit: </strong>${pets[i].eating_habit}</p>
+                <button class='btn btn-primary'>View pet</button>
+              </div>
+            </div>
+          </div>`;
+
+        $("#span-body").append(card);
+      }
+    }
+    getData('http://localhost:3000/api/pets/');
+  </script>
+  </script>
+  <title>Pet Shop</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center my-4">Cuties Pet Shoppe</h1>
+    <div id="span-body" class="row">
+    </div>
+  </div>
+</body>
+</html>

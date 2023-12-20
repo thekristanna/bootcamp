@@ -9,18 +9,26 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- <script src="library_table.js"></script> -->
+    <script src="navbar.js"></script>
     <script>
-        async function getData(data){
-            let my_obj = await fetch(data);
-            let my_text = await my_obj.text();
-            let books = JSON.parse(my_text);
+        async function getData(data) {
+        let my_obj = await fetch(data);
+        let my_text = await my_obj.text();
+        let books = JSON.parse(my_text);
 
-            for (let i = 0; i < books.length; i++){
-                let row = "<tr><td>" + books[i].id + "</td><td>" + books[i].title + "</td><td>" + books[i].genre + "</td></tr>";
-                $("#book_list").append(row);
-            }
+        for (let i = 0; i < books.length; i++) {
+          let row =
+            "<tr><td>" +
+            books[i].id +
+            "</td><td>" +
+            books[i].title +
+            "</td><td>" +
+            books[i].genre +
+            "</td></tr>";
+          $("#book_list").append(row);
         }
+      }
         getData("http://localhost:3000/api/books/");
     </script>
 
@@ -39,7 +47,7 @@
           <div class="collapse navbar-collapse" id="site_navbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" href="#"> Home </a>
+                <a class="nav-link active" href="library.html"> Home </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="goto_fantasy"> Fantasy </a>
